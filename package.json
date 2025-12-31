@@ -1,0 +1,44 @@
+{
+  "name": "@fylgja/tailwindcss",
+  "version": "0.1.0",
+  "description": "tailwindcss",
+  "homepage": "https://fylgja.dev/",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fylgja/tailwindcss"
+  },
+  "bugs": "https://github.com/fylgja/tailwindcss/issues",
+  "author": "Fylgja",
+  "license": "MIT",
+  "keywords": [
+    "fylgja",
+    "tailwindcss",
+    "css",
+    "preset"
+  ],
+  "files": [
+    "index.css",
+    "base.css",
+    "theme.css",
+    "utilities.css"
+  ],
+  "scripts": {
+    "test": "npx @tailwindcss/cli -i ./demo/tailwind-source.css -o ./demo/main.css --watch",
+    "test:build": "npx @tailwindcss/cli -i ./demo/tailwind-source.css -o ./demo/main.css",
+    "start": "npm test"
+  },
+  "devDependencies": {
+    "@fylgja/base": "^2.1.2",
+    "@fylgja/tokens": "^2.1.0",
+    "@fylgja/utilities": "^2.1.2",
+    "@tailwindcss/cli": "^4.1.18",
+    "tailwindcss": "^4.1.18"
+  },
+  "peerDependencies": {
+    "@fylgja/base": ">=2",
+    "@fylgja/tokens": ">=2",
+    "@fylgja/utilities": ">=2",
+    "tailwindcss": ">=4"
+  }
+}
