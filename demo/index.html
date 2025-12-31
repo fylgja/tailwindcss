@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>FylgjaCSS + TailwindCSS</title>
+        <link href="main.css" rel="stylesheet" />
+    </head>
+    <body>
+        <article class="container">
+            <h1 class="text-gradient">FylgjaCSS + TailwindCSS</h1>
+            <p>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatem neque quidem
+                adipisci tempore, dicta ipsam debitis ducimus aut minima, animi atque maiores
+                asperiores explicabo quam sint tempora quos accusamus eaque.
+            </p>
+            <p class="line-clamp max-w-heading">
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nihil, ab ullam tempora
+                reprehenderit distinctio minima. Animi nobis, corrupti temporibus molestias esse
+                culpa tempore suscipit itaque ad, saepe possimus, inventore asperiores?
+            </p>
+        </article>
+        <div class="flow divide-y-2">
+            <section class="container">
+                <h2>Fylgja Color Range</h2>
+                <div class="auto-grid gap-sm max-col-size-20 *:h-20">
+                    <div class="bg-stone-0"></div>
+                    <div class="bg-stone-50"></div>
+                    <div class="bg-stone-100"></div>
+                    <div class="bg-stone-150"></div>
+                    <div class="bg-stone-200"></div>
+                    <div class="bg-stone-300"></div>
+                    <div class="bg-stone-400"></div>
+                    <div class="bg-stone-500"></div>
+                    <div class="bg-stone-600"></div>
+                    <div class="bg-stone-700"></div>
+                    <div class="bg-stone-800"></div>
+                    <div class="bg-stone-850"></div>
+                    <div class="bg-stone-900"></div>
+                    <div class="bg-stone-950"></div>
+                    <div class="bg-stone-1000"></div>
+                </div>
+            </section>
+            <section class="container">
+                <h2>TailwindCSS Color Range</h2>
+                <div class="auto-grid gap max-col-size-20 *:h-20">
+                    <div class="bg-stone-50"></div>
+                    <div class="bg-stone-100"></div>
+                    <div class="bg-stone-200"></div>
+                    <div class="bg-stone-300"></div>
+                    <div class="bg-stone-400"></div>
+                    <div class="bg-stone-500"></div>
+                    <div class="bg-stone-600"></div>
+                    <div class="bg-stone-700"></div>
+                    <div class="bg-stone-800"></div>
+                    <div class="bg-stone-900"></div>
+                    <div class="bg-stone-950"></div>
+                </div>
+            </section>
+        </div>
+        <div
+            class="container snap scroll-x flex items-center justify-around gap py-6 max-w-content"
+        >
+            <div class="flex shrink-0 flex-col items-center">
+                <p class="mb-3 text-center font-mono text-xs font-medium text-gray-500">
+                    shadow-2xs
+                </p>
+                <div class="size-24 rounded-lg bg-white/10 shadow-2xs"></div>
+            </div>
+            <div class="flex shrink-0 flex-col items-center">
+                <p class="mb-3 text-center font-mono text-xs font-medium text-gray-500">
+                    shadow-xs
+                </p>
+                <div class="size-24 rounded-lg bg-white/10 shadow-xs"></div>
+            </div>
+            <div class="flex shrink-0 flex-col items-center">
+                <p class="mb-3 text-center font-mono text-xs font-medium text-gray-500">
+                    shadow-sm
+                </p>
+                <div class="size-24 rounded-lg bg-white/10 shadow-sm"></div>
+            </div>
+            <div class="flex shrink-0 flex-col items-center">
+                <p class="mb-3 text-center font-mono text-xs font-medium text-gray-500">
+                    shadow-md
+                </p>
+                <div class="size-24 rounded-lg bg-white/10 shadow-md"></div>
+            </div>
+            <div class="flex shrink-0 flex-col items-center">
+                <p class="mb-3 text-center font-mono text-xs font-medium text-gray-500">
+                    shadow-lg
+                </p>
+                <div class="size-24 rounded-lg bg-white/10 shadow-lg"></div>
+            </div>
+            <div class="flex shrink-0 flex-col items-center">
+                <p class="mb-3 text-center font-mono text-xs font-medium text-gray-500">
+                    shadow-xl
+                </p>
+                <div class="size-24 rounded-lg bg-white/10 shadow-xl"></div>
+            </div>
+            <div class="flex shrink-0 flex-col items-center">
+                <p class="mb-3 text-center font-mono text-xs font-medium text-gray-500">
+                    shadow-2xl
+                </p>
+                <div class="size-24 rounded-lg bg-white/10 shadow-2xl"></div>
+            </div>
+        </div>
+        <section class="container">
+            <button type="button">Button</button>
+            <button type="submit">Submit</button>
+            <button type="reset">Reset</button>
+        </section>
+    </body>
+</html>

@@ -1,0 +1,957 @@
+/*! tailwindcss v4.1.18 | MIT License | https://tailwindcss.com */
+@layer properties;
+@layer theme, base, components, utilities;
+@layer theme {
+  :root, :host {
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New',
+    monospace;
+    --color-gray-500: oklch(58% 0.021 260);
+    --color-stone-50: oklch(95% 0.006 140);
+    --color-stone-100: oklch(90% 0.012 140);
+    --color-stone-200: oklch(82% 0.016 140);
+    --color-stone-300: oklch(78% 0.017 140);
+    --color-stone-400: oklch(68% 0.019 140);
+    --color-stone-500: oklch(58% 0.021 140);
+    --color-stone-600: oklch(52% 0.02 140);
+    --color-stone-700: oklch(44% 0.018 140);
+    --color-stone-800: oklch(35% 0.015 140);
+    --color-stone-900: oklch(20% 0.01 140);
+    --color-stone-950: oklch(15% 0.007 140);
+    --color-white: #fff;
+    --spacing: 0.25rem;
+    --text-xs: 0.75rem;
+    --text-xs--line-height: calc(1 / 0.75);
+    --font-weight-medium: 500;
+    --font-weight-bold: 700;
+    --radius-lg: 0.5rem;
+    --color-stone-0: oklch(99% 0.003 140);
+    --color-stone-150: oklch(88% 0.014 140);
+    --color-stone-850: oklch(28% 0.012 140);
+    --color-stone-1000: oklch(11% 0.005 140);
+    --container-content: 64ch;
+    --container-heading: 36ch;
+  }
+}
+@layer base {
+  *, ::before, ::after {
+    box-sizing: border-box;
+    border: 0 solid;
+  }
+  :root {
+    --root-bg: hsl(0, 0%, 100%);
+    --root-fg: hsl(0, 0%, 8%);
+    --family-system: system-ui, sans-serif;
+    --family-mono: ui-monospace, Menlo, Consolas, monospace;
+    --select-light-scheme: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke="hsl(0 0% 0%)"><path d="m6 9 6 6 6-6"/></svg>');
+    --select-dark-scheme: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke="hsl(0 0% 100%)"><path d="m6 9 6 6 6-6"/></svg>');
+    --outline-transition: outline-offset 150ms cubic-bezier(0.25, 0, 0.4, 1);
+    --surface-color: var(--root-bg);
+    @supports (color: color-mix(in lab, red, red)) {
+      --surface-color: color-mix(in srgb, var(--root-bg) 94%, #fff);
+    }
+  }
+  :where(:focus-visible) {
+    outline: var(--outline-size, 2px) solid;
+    outline-offset: var(--outline-offset, 2px);
+  }
+  :where(:active:focus-visible) {
+    outline-offset: 0;
+    transition: var(--outline-transition);
+  }
+  :target {
+    scroll-margin-block: var(--anchor-offset, 6ex);
+  }
+  :where(html) {
+    block-size: 100%;
+    font-family: var(--family-system);
+    tab-size: 4;
+    -webkit-text-size-adjust: none;
+    text-size-adjust: none;
+    scrollbar-gutter: stable;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    :where(html):has(:target) {
+      scroll-behavior: smooth;
+    }
+  }
+  :where(body) {
+    min-block-size: 100%;
+    margin: 0;
+    background-color: var(--root-bg);
+    color: var(--root-fg);
+    font-size: var(--font-size, 1rem);
+    line-height: var(--line-height, 1.6);
+  }
+  :where(:any-link, button, input, label[for], select, summary, textarea, [tabindex]:not([tabindex^="-"])) {
+    touch-action: manipulation;
+  }
+  :where(:any-link, button, label[for], label:has(input:is([type=radio], [type=checkbox]):enabled), select:has(option:enabled), summary) {
+    cursor: pointer;
+  }
+  :where([type=button], [type=submit], [type=reset], button), ::file-selector-button {
+    appearance: button;
+  }
+  :where(summary) {
+    display: list-item;
+  }
+  :where(summary > *) {
+    display: inline;
+  }
+  :disabled {
+    cursor: not-allowed;
+  }
+  :where(img, svg, video, canvas, audio, iframe, embed, object) {
+    display: block;
+    max-inline-size: 100%;
+  }
+  :where(img, svg, iframe) {
+    block-size: auto;
+  }
+  :where(iframe) {
+    aspect-ratio: var(--aspect-ratio, 16/9);
+  }
+  [hidden]:not([hidden=until-found]) {
+    display: none;
+  }
+  article, .entry-content, .prose {
+    --text-flow: 1em 1rem;
+    --separator-flow: 2.5em;
+    --list-flow: 0.5em;
+    --h-size: 1.125rem;
+    --h-weight: 700;
+    --h-line: 1.1;
+    --h1-size: 3rem;
+    --h2-size: 2rem;
+    --h3-size: 1.625rem;
+    --h4-size: 1.375rem;
+  }
+  :where(h1, h2, h3, h4, h5, h6, p, dl, ul, ol, pre, hgroup) {
+    margin-block: var(--text-flow);
+  }
+  :where(blockquote, figure, hr) {
+    margin-block: var(--separator-flow);
+    margin-inline: 0;
+  }
+  :where(h1, h2, h3, h4, h5, h6) {
+    font-size: var(--h-size);
+    font-weight: var(--h-weight);
+    line-height: var(--h-line);
+    text-wrap: balance;
+  }
+  :where(h1) {
+    --h-size: var(--h1-size);
+  }
+  :where(h2) {
+    --h-size: var(--h2-size);
+  }
+  :where(h3) {
+    --h-size: var(--h3-size);
+  }
+  :where(h4) {
+    --h-size: var(--h4-size);
+  }
+  :where(p, li, dd) {
+    text-wrap: pretty;
+  }
+  :where(:any-link) {
+    color: inherit;
+  }
+  :where(mark, :not(pre) > code) {
+    padding: 0.0625em 0.25em;
+  }
+  :where(blockquote) {
+    border-inline-start: 4px solid;
+    padding-inline-start: 1.5em;
+    padding-block: 0.25em;
+  }
+  :where(pre) {
+    padding: 0.5em 1em;
+    white-space: pre;
+    overflow: auto;
+  }
+  :where(input, button, textarea, select, address), ::file-selector-button {
+    font: inherit;
+  }
+  :where(:is(ul, ol)[role=list], nav :is(ul, ol)) {
+    --list-flow: 0;
+    list-style: none;
+    margin-block: 0;
+    padding-inline-start: 0;
+  }
+  :where(hgroup > *), :where(dl, ol, ul) :where(dl, ol, ul) {
+    margin-block: 0;
+  }
+  :where(dt) {
+    font-weight: 500;
+  }
+  :where(li + li, dd + dt) {
+    margin-block-start: var(--list-flow);
+  }
+  :where(dd) {
+    margin-inline-start: 0;
+  }
+  :where(hr) {
+    height: auto;
+    border-block-end-width: 2px;
+    color: inherit;
+  }
+  :where(sub, sup) {
+    position: relative;
+    font-size: 0.75em;
+    line-height: 0;
+    vertical-align: baseline;
+  }
+  :where(sub) {
+    bottom: -0.25em;
+  }
+  :where(sup) {
+    top: -0.5em;
+  }
+  :where(code, pre, kbd, samp) {
+    font-family: var(--family-mono);
+  }
+  :where(code, pre) {
+    writing-mode: lr;
+    direction: ltr;
+  }
+  :where(pre, :not(pre) > code) {
+    border-radius: var(--code-radius, 0.3em);
+    border: 1px solid var(--code-stroke, rgba(0, 0, 0, 0.2));
+    background: var(--code-bg, var(--surface-color));
+    color: var(--code-color);
+  }
+  :where(table) {
+    border-spacing: 0;
+    border-color: var(--table-stroke, #777);
+  }
+  :where(thead, tbody, tfoot, tr, th, td) {
+    border-color: inherit;
+    text-align: inherit;
+  }
+  :where(th, td) {
+    padding-block: var(--table-py, 0.875em);
+    padding-inline: var(--table-px, 0.625em);
+    background: var(--root-bg);
+    color: var(--root-fg);
+  }
+  :where(tr + tr :is(th, td)) {
+    border-block-start-width: 1px;
+  }
+  :where(thead tr:last-child :is(th, td)) {
+    border-block-end-width: 2px;
+  }
+  :where(tfoot tr:first-child :is(th, td)) {
+    border-block-start-width: 2px;
+  }
+  @media print {
+    :root {
+      --root-bg: white;
+      --root-fg: black;
+    }
+    :is(h1, h2, h3, h4, h5, h6) {
+      page-break-after: avoid;
+    }
+    :is(h2, h3, h4, h5, h6, p) {
+      orphans: 3;
+      widows: 3;
+    }
+    :is(tr, img, svg, pre, blockquote) {
+      page-break-inside: avoid;
+    }
+    abbr[title]::after {
+      content: " (" attr(title) ")";
+    }
+    a[href^="https://"]::after {
+      content: " (" attr(href) ")";
+    }
+    thead {
+      display: table-header-group;
+    }
+    :is(input, select, textarea, button, .btn) {
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+  }
+}
+@layer base {
+  :where(input:not([type=range], [type=button], [type=reset], [type=submit]), textarea, select, .form-input) {
+    appearance: none;
+    margin: 0;
+    padding-block: var(--form-py, 0.4375rem);
+    padding-inline: var(--form-px, 0.8rem);
+    border-width: var(--form-border-width, 1px);
+    border-color: var(--form-stroke);
+    border-radius: var(--form-radius, 0.35rem);
+    background: var(--form-bg, var(--root-bg));
+    color: var(--form-color, var(--root-fg));
+    transition: color 250ms, background-color 250ms, border-color 250ms, box-shadow 250ms;
+  }
+  :where(input:not([type=range], [type=button], [type=reset], [type=submit]), textarea, select):placeholder-shown {
+    text-overflow: ellipsis;
+  }
+  :where(input:not([type=range], [type=button], [type=reset], [type=submit]), textarea, select):focus-visible {
+    border-color: var(--form-active-color);
+  }
+  :where(input:not([type=range], [type=button], [type=reset], [type=submit]), textarea, select):disabled {
+    box-shadow: none;
+    cursor: not-allowed;
+  }
+  :where(input:not([type=checkbox], [type=radio], [type=range], [type=button], [type=reset], [type=submit]), textarea, select) {
+    --outline-size: 1px;
+    --outline-offset: calc(
+  	(var(--form-border-width, 1px) + 1px) * -1
+  );
+    display: block;
+    max-inline-size: 100%;
+    inline-size: 100%;
+  }
+  :where(input:not([type=checkbox], [type=radio], [type=range], [type=button], [type=reset], [type=submit]), textarea, select):is(:disabled, [readonly]:not(:focus)) {
+    border-style: var(--form-disabled-border-style, dashed);
+  }
+  :where(input[type=checkbox], input[type=radio]) {
+    --_gap: var(--icon-gap, 2px);
+    block-size: var(--control-size, 1.25em);
+    inline-size: var(--control-size, 1.25em);
+    border-radius: var(--control-radius, 0.35rem);
+    border-width: var(--control-border-width, 2px);
+    padding: var(--_gap);
+    user-select: none;
+  }
+  :where(input[type=checkbox], input[type=radio]):not(:disabled) {
+    cursor: pointer;
+  }
+  :where(input[type=checkbox], input[type=radio])::after {
+    content: "";
+    display: block;
+    block-size: 100%;
+    inline-size: 100%;
+    border-radius: inherit;
+    background-color: var(--icon-color, currentcolor);
+    scale: var(--_show-icon, 0);
+    opacity: var(--_show-icon, 0);
+    transition: translate 0.15s, scale 0.15s, opacity 0.15s;
+    forced-color-adjust: none;
+    -webkit-mask: var(--_icon) center/contain no-repeat;
+    mask: var(--_icon) center/contain no-repeat;
+  }
+  :where(input[type=checkbox], input[type=radio]):checked {
+    --_show-icon: 1;
+    outline-color: var(--control-checked-stroke, var(--root-fg));
+    border-color: var(--control-checked-stroke, var(--root-fg));
+    background-color: var(--control-checked-bg, var(--root-fg));
+    color: var(--control-checked-color, var(--root-bg));
+  }
+  :where(input[type=radio]) {
+    --_gap: 3px;
+    --control-radius: 50%;
+  }
+  :where(input[type=checkbox]:not([role=switch])) {
+    --_gap: 1px;
+    --_icon: url("#");
+    --checked-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='4'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E %3C/svg%3E");
+    --indeterminate-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='4'%3E%3Cpath d='M5 12h14'/%3E%3C/svg%3E");
+  }
+  :where(input[type=checkbox]:not([role=switch])):indeterminate {
+    --_show-icon: 1;
+    --_icon: var(--indeterminate-icon);
+  }
+  :where(input[type=checkbox]:not([role=switch])):checked {
+    --_icon: var(--checked-icon);
+  }
+  :where(input[type=checkbox][role=switch]) {
+    --_show-icon: 1;
+    --control-radius: 1.25em;
+    inline-size: var(--switch-size, 2em);
+  }
+  :where(input[type=checkbox][role=switch])::after {
+    inline-size: auto;
+    aspect-ratio: 1;
+  }
+  :where(input[type=checkbox][role=switch]):checked {
+    --_offset-x: calc(
+  	var(--switch-size, 2em) -
+  	var(--control-size, 1.25em)
+  );
+  }
+  :where(input[type=checkbox][role=switch]):checked::after {
+    translate: var(--_offset-x) 0%;
+  }
+  :where(input[type=checkbox][role=switch]):checked:dir(rtl)::after {
+    translate: calc(var(--_offset-x) / -1) 0%;
+  }
+  :where(input[type=color]) {
+    --form-py: 3px;
+    --form-px: 3px;
+    block-size: var(--block-size, 2.5em);
+    inline-size: var(--inline-size, 2.5em);
+  }
+  :where(input[type=color])::-webkit-color-swatch-wrapper {
+    padding: 0;
+    border-radius: inherit;
+  }
+  :where(input[type=color])::-moz-color-swatch {
+    border: 0;
+    border-radius: inherit;
+  }
+  :where(input[type=color])::-webkit-color-swatch {
+    border: 0;
+    border-radius: inherit;
+  }
+  :where(input[type=file]) {
+    --form-py: 0;
+    --form-px: 0 0.8rem;
+    --btn-radius: 0;
+    --btn-border-width: 0;
+    overflow: clip;
+  }
+  :where(input[type=file])::file-selector-button {
+    margin-inline-end: 1em;
+  }
+  :where(select) {
+    inline-size: auto;
+    word-wrap: normal;
+  }
+  :where(select:not([size]:not([size="1"]), [multiple])) {
+    --icon-size: var(--select-icon-size, 1.25em);
+    --icon-offset: var(--select-icon-offset, 0.8rem);
+    padding-inline-end: calc(var(--icon-size) + var(--icon-offset) + 0.5ch);
+    background: var(--select-icon, var(--select-light-scheme)) var(--form-bg, var(--root-bg)) var(--icon-position, right) var(--icon-offset) center/var(--icon-size) no-repeat;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  :where(select:not([size]:not([size="1"]), [multiple])):dir(rtl) {
+    --icon-position: left;
+  }
+  :where(textarea) {
+    resize: vertical;
+  }
+  :where(textarea:not([row])) {
+    min-block-size: var(--textarea-min-size, calc(3.5lh + var(--form-py, 0.4375rem)));
+    field-sizing: content;
+  }
+  ::placeholder {
+    opacity: 1;
+    color: currentcolor;
+    @supports (color: color-mix(in lab, red, red)) {
+      color: color-mix(in srgb, currentcolor 54%, transparent);
+    }
+  }
+  :where(fieldset) {
+    min-inline-size: 0;
+    margin: 0;
+    padding: 0;
+  }
+  :where(legend) {
+    padding: 0;
+  }
+  ::-webkit-search-decoration {
+    -webkit-appearance: none;
+  }
+  ::-webkit-datetime-edit, ::-webkit-datetime-edit-fields-wrapper, ::-webkit-datetime-edit-year-field, ::-webkit-datetime-edit-month-field, ::-webkit-datetime-edit-day-field, ::-webkit-datetime-edit-hour-field, ::-webkit-datetime-edit-minute-field, ::-webkit-datetime-edit-second-field, ::-webkit-datetime-edit-millisecond-field, ::-webkit-datetime-edit-meridiem-field {
+    display: inline;
+    padding-block: 0;
+  }
+  ::-webkit-date-and-time-value {
+    min-height: 1lh;
+    text-align: inherit;
+  }
+  ::-webkit-calendar-picker-indicator {
+    line-height: 1;
+  }
+  :where([list]:not([type*=date], [type=month], [type=week], [type=time])) {
+    --datalist-icon: var(--select-icon, var(--chevron-light-scheme));
+  }
+  :where([list]:not([type*=date], [type=month], [type=week], [type=time]))::-webkit-calendar-picker-indicator {
+    display: block !important;
+    background: var(--datalist-icon) center/contain no-repeat;
+    opacity: 1;
+  }
+  :where([list]:not([type*=date], [type=month], [type=week], [type=time]))::-webkit-list-button {
+    appearance: none;
+    block-size: 1em;
+    inline-size: 1em;
+    padding: 3px;
+    align-self: center;
+    background: var(--datalist-icon) center/contain no-repeat;
+  }
+}
+@layer base {
+  :where(button, [type=button], [type=submit], [type=reset], .btn), ::file-selector-button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--btn-gap, 0.5em);
+    padding-block: var(--btn-py, 0.375rem);
+    padding-inline: var(--btn-px, 0.8rem);
+    border-radius: var(--btn-radius, 0.5rem);
+    border-width: var(--btn-border-width, 2px);
+    border-color: var(--btn-stroke);
+    background: var(--btn-bg, transparent);
+    color: var(--btn-color, currentcolor);
+    font-weight: var(--btn-font-weight, 500);
+    text-decoration: none;
+    transition: color 0.2s, background-color 0.2s, border-color 0.2s, box-shadow 0.2s, var(--outline-transition);
+    user-select: none;
+    cursor: pointer;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+  :where(button, [type=button], [type=submit], [type=reset], .btn) {
+    vertical-align: middle;
+  }
+  :where(button, [type=button], [type=submit], [type=reset], .btn):hover, ::file-selector-button:hover {
+    border-color: var(--btn-hover-stroke, var(--btn-stroke));
+    background-color: var(--btn-hover-bg, var(--btn-bg, currentcolor));
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: var(--btn-hover-bg, var(--btn-bg, color-mix(in srgb, currentcolor, transparent 86%)));
+    }
+    color: var(--btn-hover-color, var(--btn-color, currentcolor));
+  }
+  :where(button, [type=button], [type=submit], [type=reset], .btn):is(:active, .is-active, [aria-current=page], [aria-current=true], [aria-selected=true], :where(:has(input:checked))) {
+    border-color: var(--btn-active-stroke, var(--btn-stroke));
+    background-color: var(--btn-active-bg, var(--btn-bg, currentcolor));
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: var(--btn-active-bg, var(--btn-bg, color-mix(in srgb, currentcolor, transparent 78%)));
+    }
+    color: var(--btn-active-color, var(--btn-color, currentcolor));
+  }
+  :where(button, [type=button], [type=submit], [type=reset], .btn):is(:disabled [aria-disabled=true]), :disabled::file-selector-button {
+    box-shadow: none;
+    border-color: var(--btn-disabled-stroke);
+    background-color: var(--btn-disabled-bg, var(--root-bg));
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: var(--btn-disabled-bg, color-mix(in srgb, var(--root-bg) 90%, var(--root-fg)));
+    }
+    color: var(--btn-disabled-color, var(--root-fg));
+    @supports (color: color-mix(in lab, red, red)) {
+      color: var(--btn-disabled-color, color-mix(in srgb, var(--root-fg) 40%, var(--root-bg)));
+    }
+    cursor: not-allowed;
+  }
+}
+@layer base {
+  :where(dialog) {
+    --backdrop: hsla(0, 0%, 0%, 0.3);
+    --ty: var(--dialog-translate-y, 2rem);
+    --tx: var(--dialog-translate-x, 0);
+    --speed: var(--dialog-close-speed, 300ms);
+    --screen-y: 2rem;
+    --screen-x: 2rem;
+    --my: auto;
+    --mx: auto;
+    position: fixed;
+    max-block-size: calc(100% - var(--screen-y));
+    max-inline-size: calc(100% - var(--screen-x));
+    background-color: var(--dialog-bg, var(--root-bg));
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: var(--dialog-bg, color-mix(in oklab, var(--root-bg) 88%, white));
+    }
+    color: var(--dialog-color, var(--root-fg));
+    border-radius: 1rem;
+    margin-block: var(--my);
+    margin-inline: var(--mx);
+    padding: 1.5rem;
+    box-shadow: var(--dialog-shadow, 0 3px 5px hsla(0, 0%, 0%, 0.18));
+    translate: var(--tx) var(--ty);
+    opacity: 0;
+  }
+  :where(dialog)::backdrop {
+    background-color: var(--backdrop);
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    :where(dialog) {
+      transition-property: translate, opacity, display, overlay;
+      transition-duration: var(--speed);
+      transition-behavior: allow-discrete;
+    }
+  }
+  :where(dialog:is([open], :popover-open)) {
+    --speed: var(--dialog-open-speed, 400ms);
+    opacity: 1;
+    translate: 0 0;
+  }
+  @starting-style {
+    :where(dialog:is([open], :popover-open)) {
+      opacity: 0;
+      translate: var(--tx) var(--ty);
+    }
+  }
+  :where(:root:has(dialog[open]:modal)) {
+    overflow: hidden;
+  }
+}
+@layer utilities {
+  .container {
+    width: 100%;
+    @media (width >= 80px) {
+      max-width: 80px;
+    }
+    @media (width >= 768px) {
+      max-width: 768px;
+    }
+    @media (width >= 1024px) {
+      max-width: 1024px;
+    }
+    @media (width >= 1440px) {
+      max-width: 1440px;
+    }
+    @media (width >= 1920px) {
+      max-width: 1920px;
+    }
+  }
+  .container {
+    max-width: none;
+    width: auto;
+    inline-size: min(100% - var(--container-gap) * 2, var(--container-size));
+    margin-inline: auto;
+  }
+  .mx-auto {
+    margin-inline: auto;
+  }
+  .flow {
+    --flow: 1em;
+    > :where(:not(:first-child)) {
+      margin-block: var(--flow) 0;
+    }
+    > :first-child {
+      margin-block: 0;
+    }
+  }
+  .mb-3 {
+    margin-bottom: calc(var(--spacing) * 3);
+  }
+  .auto-grid {
+    --max-col-size: calc(var(--spacing) * 14);
+    display: grid;
+    grid-template-columns: repeat(	auto-fill,	minmax(min(100%, var(--max-col-size)), 1fr)	);
+  }
+  .line-clamp {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+  }
+  .flex {
+    display: flex;
+  }
+  .size-24 {
+    width: calc(var(--spacing) * 24);
+    height: calc(var(--spacing) * 24);
+  }
+  .max-w-content {
+    max-width: var(--container-content);
+  }
+  .max-w-heading {
+    max-width: var(--container-heading);
+  }
+  .shrink-0 {
+    flex-shrink: 0;
+  }
+  .snap {
+    --snap-dir: x mandatory;
+    --snap-stop: normal;
+    --snap-align: start;
+    scroll-snap-type: var(--snap-dir);
+    scroll-snap-stop: var(--snap-stop);
+    scroll-behavior: smooth;
+    > * {
+      scroll-snap-align: var(--snap-align);
+    }
+  }
+  .flex-col {
+    flex-direction: column;
+  }
+  .items-center {
+    align-items: center;
+  }
+  .justify-around {
+    justify-content: space-around;
+  }
+  .gap {
+    --gap: 1em;
+    gap: var(--gap);
+  }
+  .gap-4 {
+    gap: calc(var(--spacing) * 4);
+  }
+  .gap-sm {
+    gap: 0.5em;
+  }
+  .gap-y-6 {
+    row-gap: calc(var(--spacing) * 6);
+  }
+  .divide-y-2 {
+    :where(& > :not(:last-child)) {
+      --tw-divide-y-reverse: 0;
+      border-bottom-style: var(--tw-border-style);
+      border-top-style: var(--tw-border-style);
+      border-top-width: calc(2px * var(--tw-divide-y-reverse));
+      border-bottom-width: calc(2px * calc(1 - var(--tw-divide-y-reverse)));
+    }
+  }
+  .scroll-x {
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+  }
+  .rounded-lg {
+    border-radius: var(--radius-lg);
+  }
+  .divide-y-2 {
+    > :where(& > :not(:last-child)) {
+      border-color: inherit;
+      padding-block: 0 var(--flow);
+    }
+  }
+  .bg-stone-0 {
+    background-color: var(--color-stone-0);
+  }
+  .bg-stone-50 {
+    background-color: var(--color-stone-50);
+  }
+  .bg-stone-100 {
+    background-color: var(--color-stone-100);
+  }
+  .bg-stone-150 {
+    background-color: var(--color-stone-150);
+  }
+  .bg-stone-200 {
+    background-color: var(--color-stone-200);
+  }
+  .bg-stone-300 {
+    background-color: var(--color-stone-300);
+  }
+  .bg-stone-400 {
+    background-color: var(--color-stone-400);
+  }
+  .bg-stone-500 {
+    background-color: var(--color-stone-500);
+  }
+  .bg-stone-600 {
+    background-color: var(--color-stone-600);
+  }
+  .bg-stone-700 {
+    background-color: var(--color-stone-700);
+  }
+  .bg-stone-800 {
+    background-color: var(--color-stone-800);
+  }
+  .bg-stone-850 {
+    background-color: var(--color-stone-850);
+  }
+  .bg-stone-900 {
+    background-color: var(--color-stone-900);
+  }
+  .bg-stone-950 {
+    background-color: var(--color-stone-950);
+  }
+  .bg-stone-1000 {
+    background-color: var(--color-stone-1000);
+  }
+  .bg-white\/10 {
+    background-color: color-mix(in srgb, #fff 10%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-white) 10%, transparent);
+    }
+  }
+  .px-6 {
+    padding-inline: calc(var(--spacing) * 6);
+  }
+  .py-6 {
+    padding-block: calc(var(--spacing) * 6);
+  }
+  .py-14 {
+    padding-block: calc(var(--spacing) * 14);
+  }
+  .text-center {
+    text-align: center;
+  }
+  .font-mono {
+    font-family: var(--font-mono);
+  }
+  .text-xs {
+    font-size: var(--text-xs);
+    line-height: var(--tw-leading, var(--text-xs--line-height));
+  }
+  .font-bold {
+    --tw-font-weight: var(--font-weight-bold);
+    font-weight: var(--font-weight-bold);
+  }
+  .font-medium {
+    --tw-font-weight: var(--font-weight-medium);
+    font-weight: var(--font-weight-medium);
+  }
+  .text-gray-500 {
+    color: var(--color-gray-500);
+  }
+  .shadow-2xl {
+    --tw-shadow: 0 8px 10px -5px var(--tw-shadow-color, #0001), 0 16px 24px 2px var(--tw-shadow-color, #0001), 0 6px 30px 5px var(--tw-shadow-color, #0001);
+    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+  }
+  .shadow-2xs {
+    --tw-shadow: 0 1px var(--tw-shadow-color, rgb(0 0 0 / 0.05));
+    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+  }
+  .shadow-lg {
+    --tw-shadow: 0 5px 5px -3px var(--tw-shadow-color, #0001), 0 8px 10px 1px var(--tw-shadow-color, #0001), 0 3px 14px 2px var(--tw-shadow-color, #0001);
+    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+  }
+  .shadow-md {
+    --tw-shadow: 0 3px 5px -1px var(--tw-shadow-color, #0001), 0 6px 10px var(--tw-shadow-color, #0001), 0 1px 18px var(--tw-shadow-color, #0001);
+    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+  }
+  .shadow-sm {
+    --tw-shadow: 0 3px 3px -2px var(--tw-shadow-color, #0001), 0 3px 4px var(--tw-shadow-color, #0001), 0 1px 8px var(--tw-shadow-color, #0001);
+    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+  }
+  .shadow-xl {
+    --tw-shadow: 0 7px 8px -4px var(--tw-shadow-color, #0001), 0 12px 17px 2px var(--tw-shadow-color, #0001), 0 5px 22px 4px var(--tw-shadow-color, #0001);
+    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+  }
+  .shadow-xs {
+    --tw-shadow: 0 2px 1px -1px var(--tw-shadow-color, #0001), 0 1px 1px var(--tw-shadow-color, #0001), 0 1px 3px var(--tw-shadow-color, #0001);
+    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+  }
+  .max-col-size-20 {
+    --max-col-size: calc(var(--spacing) * 20);
+  }
+  .\*\:h-20 {
+    :is(& > *) {
+      height: calc(var(--spacing) * 20);
+    }
+  }
+  .max-sm\:flex-col {
+    @media (width < 80px) {
+      flex-direction: column;
+    }
+  }
+  .max-sm\:py-10 {
+    @media (width < 80px) {
+      padding-block: calc(var(--spacing) * 10);
+    }
+  }
+}
+:where(details[open] > summary, [aria-expanded=true], [aria-selected=true], [aria-sort=ascending], :is(details[open] > summary, [aria-expanded=true], [aria-selected=true], [aria-sort=ascending]) > :is(.group, .stack)) > .toggle-flip {
+  scale: -1;
+}
+:where(details[open] > summary, [aria-expanded=true], [aria-selected=true], [aria-sort=ascending], :is(details[open] > summary, [aria-expanded=true], [aria-selected=true], [aria-sort=ascending]) > :is(.group, .stack)) > .toggle-turn {
+  rotate: 90deg;
+}
+:where(details[open] > summary, [aria-expanded=true], [aria-selected=true], [aria-sort=ascending], :is(details[open] > summary, [aria-expanded=true], [aria-selected=true], [aria-sort=ascending]) > :is(.group, .stack)) > .toggle-rotate {
+  rotate: 180deg;
+}
+:where(details[open] > summary, [aria-expanded=true], [aria-selected=true], [aria-sort=ascending], :is(details[open] > summary, [aria-expanded=true], [aria-selected=true], [aria-sort=ascending]) > :is(.group, .stack)) > .toggle-hide {
+  visibility: hidden;
+}
+:where(details:not([open]) > summary, [aria-expanded=false], [aria-selected=false], [aria-sort=descending], :is(details:not([open]) > summary, [aria-expanded=false], [aria-selected=false], [aria-sort=descending]) > :is(.group, .stack)) > .toggle-show {
+  visibility: hidden;
+}
+:root {
+  --container-size: 1280px;
+  --container-gap: 1.25rem;
+}
+@layer utilities {
+  :where(.flex-col, .flex-wrap) {
+    display: flex;
+  }
+}
+@property --tw-divide-y-reverse {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0;
+}
+@property --tw-border-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
+}
+@property --tw-font-weight {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --tw-shadow-color {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-shadow-alpha {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 100%;
+}
+@property --tw-inset-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --tw-inset-shadow-color {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-inset-shadow-alpha {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 100%;
+}
+@property --tw-ring-color {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-ring-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --tw-inset-ring-color {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-inset-ring-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --tw-ring-inset {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-ring-offset-width {
+  syntax: "<length>";
+  inherits: false;
+  initial-value: 0px;
+}
+@property --tw-ring-offset-color {
+  syntax: "*";
+  inherits: false;
+  initial-value: #fff;
+}
+@property --tw-ring-offset-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@layer properties {
+  @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
+    *, ::before, ::after, ::backdrop {
+      --tw-divide-y-reverse: 0;
+      --tw-border-style: solid;
+      --tw-font-weight: initial;
+      --tw-shadow: 0 0 #0000;
+      --tw-shadow-color: initial;
+      --tw-shadow-alpha: 100%;
+      --tw-inset-shadow: 0 0 #0000;
+      --tw-inset-shadow-color: initial;
+      --tw-inset-shadow-alpha: 100%;
+      --tw-ring-color: initial;
+      --tw-ring-shadow: 0 0 #0000;
+      --tw-inset-ring-color: initial;
+      --tw-inset-ring-shadow: 0 0 #0000;
+      --tw-ring-inset: initial;
+      --tw-ring-offset-width: 0px;
+      --tw-ring-offset-color: #fff;
+      --tw-ring-offset-shadow: 0 0 #0000;
+    }
+  }
+}
