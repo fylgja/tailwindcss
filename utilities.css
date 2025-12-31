@@ -1,0 +1,217 @@
+/* TODO rework this into the @fylgja/utilities so this stays a wrapper, as with the rest of this preset */
+
+@import "@fylgja/utilities/utils/toggle.css";
+
+/**
+ * @source https://github.com/fylgja/fylgja/blob/main/utilities/utils/auto-grid.css
+ */
+@utility auto-grid {
+	--max-col-size: calc(var(--spacing) * 14);
+	display: grid;
+	grid-template-columns: repeat(
+		auto-fill,
+		minmax(min(100%, var(--max-col-size)), 1fr)
+	);
+}
+
+@utility max-col-size-* {
+	--max-col-size: calc(var(--spacing) * --value(integer));
+}
+
+/**
+ * This version still requires to override the Tailwind values with out own
+ *
+ * @source https://github.com/fylgja/fylgja/blob/main/utilities/utils/container.css
+ */
+:root {
+	--container-size: 1280px;
+	--container-gap: 1.25rem;
+}
+
+@utility container {
+	max-width: none;
+	width: auto;
+	inline-size: min(100% - var(--container-gap) * 2, var(--container-size));
+	margin-inline: auto;
+}
+
+/**
+ * @source https://github.com/fylgja/fylgja/blob/main/utilities/utils/flow.css
+ */
+@utility flow {
+	--flow: 1em;
+
+	> :where(:not(:first-child)) {
+		margin-block: var(--flow) 0;
+	}
+
+	> :first-child {
+		margin-block: 0;
+	}
+}
+
+@utility flow-none {
+	> * {
+		margin-block: 0;
+	}
+}
+
+/**
+ * @source https://github.com/fylgja/fylgja/blob/main/utilities/utils/overlay.css
+ */
+@utility overlay {
+	--overlay-bg: hsl(0 0% 0% / 60%);
+	--overlay-fg: #fff;
+	border-image: 0 fill linear-gradient(0deg, var(--overlay-bg), transparent);
+	color: var(--overlay-fg);
+}
+
+/**
+ * Add missing defaults
+ *
+ * @source https://github.com/fylgja/fylgja/blob/main/utilities/utils/rounded.css
+ */
+@utility rounded-inherit {
+	border-radius: inherit;
+}
+
+@utility round {
+	aspect-ratio: 1;
+	border-radius: 100000px;
+	overflow: clip;
+}
+
+/**
+ * @source https://github.com/fylgja/fylgja/blob/main/utilities/utils/scroll.css
+ * @source https://github.com/fylgja/fylgja/blob/main/utilities/utils/scrollbar.css
+ * TODO: consider adding scroll-mask, but first see how this works with the mask utility
+ */
+@utility scroll-x {
+	overflow-x: auto;
+	overscroll-behavior-x: contain;
+}
+
+@utility scroll-y {
+	overflow-y: auto;
+	overscroll-behavior-y: contain;
+}
+
+@utility scrollbar-none {
+	scrollbar-width: none;
+}
+
+@utility scrollbar-thin {
+	scrollbar-width: thin;
+}
+
+/**
+ * @source https://github.com/fylgja/fylgja/blob/main/utilities/utils/snap.css
+ * Shorthand, might rework this in laterphase for v3
+ */
+@utility snap {
+	--snap-dir: x mandatory;
+	--snap-stop: normal;
+	--snap-align: start;
+	scroll-snap-type: var(--snap-dir);
+	scroll-snap-stop: var(--snap-stop);
+	scroll-behavior: smooth;
+
+	> * {
+		scroll-snap-align: var(--snap-align);
+	}
+}
+
+/**
+ * @source https://github.com/fylgja/fylgja/blob/main/utilities/utils/stack.css
+ */
+@utility stack {
+	display: grid;
+
+	> *,
+	> ::before,
+	> ::after {
+		grid-area: 1/1;
+	}
+}
+
+/**
+ * @source https://github.com/fylgja/fylgja/blob/main/utilities/utils/stretched-link.css
+ */
+@utility stretched-link {
+	&::after {
+		content: "";
+		position: absolute;
+		inset: 0;
+	}
+}
+
+/**
+ * @source https://github.com/fylgja/fylgja/blob/main/utilities/utilstypography.css
+ */
+@utility lead {
+	font-size: large;
+	font-weight: bold;
+}
+
+/**
+ * Better defaults
+ *
+ * @source https://github.com/fylgja/fylgja/blob/main/utilities/utils/divide.css
+ * @source https://github.com/fylgja/fylgja/blob/main/utilities/utils/flex.css
+ * @source https://github.com/fylgja/fylgja/blob/main/utilities/utils/list.css
+ */
+@utility divide-y {
+	> :where(& > :not(:last-child)) {
+		border-color: inherit;
+		padding-block: 0 var(--flow);
+	}
+}
+
+@utility divide-y-* {
+	> :where(& > :not(:last-child)) {
+		border-color: inherit;
+		padding-block: 0 var(--flow);
+	}
+}
+
+@utility divide-x {
+	> :where(& > :not(:last-child)) {
+		border-color: inherit;
+		padding-inline: 0 var(--flow);
+	}
+}
+
+@utility divide-x-* {
+	> :where(& > :not(:last-child)) {
+		border-color: inherit;
+		padding-inline: 0 var(--flow);
+	}
+}
+
+@layer utilities {
+	:where(.flex-col, .flex-wrap) {
+		display: flex;
+	}
+}
+
+@utility list-none {
+	&::-webkit-details-marker {
+		display: none;
+	}
+}
+
+/**
+ * Extend with int-less versions
+ *
+ * @source https://github.com/fylgja/fylgja/blob/main/utilities/utils/gap.css
+ * @source https://github.com/fylgja/fylgja/blob/main/utilities/utils/line-clamp.css
+ */
+@theme inline {
+	--gap-sm: 0.5em;
+	--line-clamp: 3;
+}
+
+@utility gap {
+	--gap: 1em;
+	gap: var(--gap);
+}
