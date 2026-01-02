@@ -9,7 +9,7 @@
 >
 > While it is functionally stable, we reserve the right to introduce breaking changes before its official stable release.
 
-`@fylgja/tailwindcss` is a preset for Tailwind CSS v4+,
+The Fylgja CSS Tailwind package is a preset for Tailwind CSS v4+,
 replacing the default theme with Fylgja's design tokens and adding a set of useful base styles and utilities.
 
 This allows you to use the power and flexibility of Tailwind's utility-first approach
@@ -24,11 +24,12 @@ npm install @fylgja/tailwindcss
 
 # Peer dependencies
 npm install @fylgja/base @fylgja/tokens @fylgja/utilities
-npm install tailwindcss
 ```
 
 This way, `@fylgja/tailwindcss` is not dependent on the versions of its peer dependencies,
 allowing you to choose your preferred versions.
+
+For instructions on how to add TailwindCSS, see the [Tailwind Getting Started](https://tailwindcss.com/docs/installation/).
 
 ## Usage
 
@@ -40,11 +41,11 @@ Once installed, you can import the full package with:
 
 Alternatively, if you only need specific parts of the base, you can import them individually:
 
-| Import Path                     | Description                                                                   |
-| ------------------------------- | ----------------------------------------------------------------------------- |
-| `@fylgja/tailwindcss/theme`     | Replaces some Tailwind default theme settings with the Fylgja's design tokens |
-| `@fylgja/tailwindcss/base`      | Provide sensible defaults for common HTML elements                            |
-| `@fylgja/tailwindcss/utilities` | Extends the TailwindCSS Utilities with The Fylgja CSS utilities               |
+| Import Path                     | Description                                                   |
+| ------------------------------- | ------------------------------------------------------------- |
+| `@fylgja/tailwindcss/theme`     | Replaces Tailwind's default theme with Fylgja's design tokens |
+| `@fylgja/tailwindcss/base`      | Provides sensible defaults for common HTML elements           |
+| `@fylgja/tailwindcss/utilities` | Extends Tailwind CSS with Fylgja's utility classes            |
 
 ## What's Included
 
@@ -54,12 +55,12 @@ This preset replaces Tailwind's default theme with Fylgja's design tokens. This 
 
 - **Colors:** A rich and harmonious color palette using the modern `oklch` color space.
   The color names follow the format `color-shade` (e.g., `bg-blue-500`, `text-red-700`).
-- **Shadows:** A set of beautiful, layered shadows, using dept creating better shadows for any color pallet.
+- **Shadows:** A set of beautiful, layered shadows, using depth to create better shadows for any color palette.
 - **Easings:** A collection of easing functions for smooth animations.
 - **Breakpoints:** Responsive breakpoints for building adaptive layouts.
 - **Aspect Ratios:** A set of common aspect ratios.
 
-This theme is powered by the `@fylgja/tokens` package.
+This theme is powered by the [`@fylgja/tokens` package](https://fylgja.dev/library/tokens/).
 
 ### Base Styles
 
@@ -74,7 +75,7 @@ This includes styles for:
 - Buttons (`btn`)
 - Dialogs
 
-This section is powered by the `@fylgja/base` package.
+This section is powered by the [`@fylgja/base` package](https://fylgja.dev/library/base/).
 
 ### Utilities
 
@@ -121,4 +122,4 @@ adapted for Tailwind CSS v4's `@utility` syntax.
 
 These utilities are designed to be intuitive and to integrate seamlessly with the rest of the Tailwind ecosystem.
 
-This collection of utilities is powered by the `@fylgja/utilities` package.
+This collection of utilities is powered by the [`@fylgja/utilities` package](https://fylgja.dev/library/utilities/).

@@ -1,7 +1,7 @@
 {
   "name": "@fylgja/tailwindcss",
   "version": "0.1.0",
-  "description": "tailwindcss",
+  "description": "Tailwind CSS preset to use the Fylgja Design System, with its design tokens, base styles, and utilities.",
   "homepage": "https://fylgja.dev/",
   "type": "module",
   "repository": {
