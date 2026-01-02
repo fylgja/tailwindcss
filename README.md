@@ -1,8 +1,7 @@
 # Fylgja CSS + TailwindCSS
 
 [![NPM version](https://img.shields.io/npm/v/@fylgja/tailwindcss)](https://www.npmjs.com/package/@fylgja/tailwindcss)
-[![NPM Downloads](https://img.shields.io/npm/dt/%40fylgja%2Ftailwindcss)](https://www.npmjs.com/package/@fylgja/tailwindcss)
-[![License](https://img.shields.io/github/license/fylgja/fylgja?color=%23234)](https://github.com/fylgja/fylgja/blob/main/LICENSE)
+[![License](https://img.shields.io/github/license/fylgja/fylgja?color=%23234)](https://github.com/fylgja/tailwindcss/blob/main/LICENSE)
 
 > [!warning]
 > This project is currently in Beta.
