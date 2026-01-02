@@ -30,7 +30,7 @@
   },
   "devDependencies": {
     "@fylgja/base": "^2.1.2",
-    "@fylgja/tokens": "^2.1.0",
+    "@fylgja/tokens": "^2.2.0",
     "@fylgja/utilities": "^2.1.2",
     "@tailwindcss/cli": "^4.1.18",
     "tailwindcss": "^4.1.18"
