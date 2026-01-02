@@ -4,7 +4,7 @@
 [![NPM Downloads](https://img.shields.io/npm/dt/%40fylgja%2Ftailwindcss)](https://www.npmjs.com/package/@fylgja/tailwindcss)
 [![License](https://img.shields.io/github/license/fylgja/fylgja?color=%23234)](https://github.com/fylgja/fylgja/blob/main/LICENSE)
 
-> [!note]
+> [!warning]
 > This project is currently in Beta.
 >
 > While it is functionally stable, we reserve the right to introduce breaking changes before its official stable release.
@@ -69,10 +69,10 @@ without interfering with your own custom component styles.
 
 This includes styles for:
 
--   Typography, scoped to the `<article>` tag and `.prose` class.
--   Forms
--   Buttons (`btn`)
--   Dialogs
+- Typography, scoped to the `<article>` tag and/or `.prose` class.
+- Forms
+- Buttons (`btn`)
+- Dialogs
 
 This section is powered by the `@fylgja/base` package.
 
