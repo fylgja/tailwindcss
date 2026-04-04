@@ -189,7 +189,7 @@
 }
 
 @layer utilities {
-	:where(.flex-col, .flex-wrap) {
+	:where(:is(.flex-col, .flex-wrap):not(dialog, [popover])) {
 		display: flex;
 	}
 }
