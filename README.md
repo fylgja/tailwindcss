@@ -3,11 +3,6 @@
 [![NPM version](https://img.shields.io/npm/v/@fylgja/tailwindcss)](https://www.npmjs.com/package/@fylgja/tailwindcss)
 [![License](https://img.shields.io/github/license/fylgja/fylgja?color=%23234)](https://github.com/fylgja/tailwindcss/blob/main/LICENSE)
 
-> [!warning]
-> This project is currently in Beta.
->
-> While it is functionally stable, we reserve the right to introduce breaking changes before its official stable release.
-
 The Fylgja CSS Tailwind package is a preset for Tailwind CSS v4+,
 replacing the default theme with Fylgja's design tokens and adding a set of useful base styles and utilities.
 

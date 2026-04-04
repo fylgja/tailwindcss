@@ -1,6 +1,6 @@
 {
   "name": "@fylgja/tailwindcss",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Tailwind CSS preset to use the Fylgja Design System, with its design tokens, base styles, and utilities.",
   "homepage": "https://fylgja.dev/",
   "type": "module",
@@ -20,6 +20,7 @@
   "files": [
     "index.css",
     "base.css",
+    "btn.css",
     "theme.css",
     "utilities.css"
   ],
@@ -36,9 +37,9 @@
     "tailwindcss": "^4.1.18"
   },
   "peerDependencies": {
-    "@fylgja/base": ">=2",
-    "@fylgja/tokens": ">=2",
-    "@fylgja/utilities": ">=2",
-    "tailwindcss": ">=4"
+    "@fylgja/base": ">=2 <3",
+    "@fylgja/tokens": ">=2 <3",
+    "@fylgja/utilities": ">=2 <3",
+    "tailwindcss": ">=4 <5"
   }
 }
