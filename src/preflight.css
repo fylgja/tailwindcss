@@ -1,15 +1,14 @@
 /* Add extra unsets also found in Tailwind CSS */
-@layer base {
-	/* Unset Links, Normaly not recommended for A11Y reason */
-	:where(:any-link) {
-		text-decoration: inherit;
-	}
 
-	/* Unset buttons we use the class only approuch for use with Tailwind */
-	:where(button),
-	::file-selector-button {
-		border-radius: 0;
-		background-color: transparent;
-		color: inherit;
-	}
+/* Unset Links, Normaly not recommended for A11Y reason */
+:where(:any-link) {
+	text-decoration: inherit;
+}
+
+/* Unset buttons we use the class only approuch for use with Tailwind */
+:where(button),
+::file-selector-button {
+	border-radius: 0;
+	background-color: transparent;
+	color: inherit;
 }
