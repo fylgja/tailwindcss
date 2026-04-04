@@ -22,6 +22,7 @@
  * This version still requires to override the Tailwind values with out own
  *
  * @source https://github.com/fylgja/fylgja/blob/main/utilities/utils/container.css
+ * See issue: https://github.com/tailwindlabs/tailwindcss/discussions/16132#discussioncomment-12804042
  */
 :root {
 	--container-size: 1280px;
