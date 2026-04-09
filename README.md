@@ -1,6 +1,7 @@
 # Fylgja CSS Preset TailwindCSS 
 
-[![NPM version](https://img.shields.io/npm/v/@fylgja/tailwindcss)](https://www.npmjs.com/package/@fylgja/tailwindcss)
+[![Fylgja](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Ffylgja%2F.github%2Frefs%2Fheads%2Fmain%2Fassets%2Fbadge%2Fv1.0.0.json)](https://fylgja.dev/)
+[![Version](https://img.shields.io/npm/v/@fylgja/tailwindcss)](https://www.npmjs.com/package/@fylgja/tailwindcss)
 [![License](https://img.shields.io/github/license/fylgja/fylgja?color=%23234)](https://github.com/fylgja/tailwindcss/blob/main/LICENSE)
 
 The Fylgja CSS Tailwind package is a preset for Tailwind CSS v4+,
