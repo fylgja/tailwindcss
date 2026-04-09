@@ -1,4 +1,4 @@
-# Fylgja CSS + TailwindCSS
+# Fylgja CSS Preset TailwindCSS 
 
 [![NPM version](https://img.shields.io/npm/v/@fylgja/tailwindcss)](https://www.npmjs.com/package/@fylgja/tailwindcss)
 [![License](https://img.shields.io/github/license/fylgja/fylgja?color=%23234)](https://github.com/fylgja/tailwindcss/blob/main/LICENSE)
