@@ -160,28 +160,28 @@
  * @source https://github.com/fylgja/fylgja/blob/main/utilities/utils/list.css
  */
 @utility divide-y {
-	> :where(& > :not(:last-child)) {
+	:where(& > :not(:last-child)) {
 		border-color: inherit;
 		padding-block: 0 var(--flow);
 	}
 }
 
 @utility divide-y-* {
-	> :where(& > :not(:last-child)) {
+	:where(& > :not(:last-child)) {
 		border-color: inherit;
 		padding-block: 0 var(--flow);
 	}
 }
 
 @utility divide-x {
-	> :where(& > :not(:last-child)) {
+	:where(& > :not(:last-child)) {
 		border-color: inherit;
 		padding-inline: 0 var(--flow);
 	}
 }
 
 @utility divide-x-* {
-	> :where(& > :not(:last-child)) {
+	:where(& > :not(:last-child)) {
 		border-color: inherit;
 		padding-inline: 0 var(--flow);
 	}

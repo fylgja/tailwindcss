@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+### Fixed
+
+- Invalid empty selector in the `divide-x` and `divide-y` utilities, which caused the child padding rule to be dropped (#9)
+
 ## 1.0.0 - 2026-04-04
 
 Initial Release 🎉
