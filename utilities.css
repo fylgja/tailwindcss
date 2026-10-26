@@ -22,9 +22,11 @@
  * @source https://github.com/fylgja/fylgja/blob/main/utilities/utils/container.css
  * See issue: https://github.com/tailwindlabs/tailwindcss/discussions/16132#discussioncomment-12804042
  */
-:root {
-	--container-size: 1280px;
-	--container-gap: 1.25rem;
+@layer base {
+	:root {
+		--container-size: 1280px;
+		--container-gap: 1.25rem;
+	}
 }
 
 @utility container {
