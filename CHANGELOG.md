@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+### Fixed
+
+- The `--container-size` and `--container-gap` defaults are now in `@layer base`, so a consumer can override them without `!important`
+
 ## 1.0.3 - 2026-10-10
 
 ### Fixed
